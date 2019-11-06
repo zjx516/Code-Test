@@ -3,8 +3,8 @@ const app = express();
 const path = require('path');
 
 const router = express.Router();
-const upload = require('./uploadMiddleware');
-const Resize = require('./Resize');
+const upload = require('../config/multerConfig');
+const Resize = require('../config/resize');
 
 var Item = require('../model/Item');
 

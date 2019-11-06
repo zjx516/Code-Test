@@ -1,5 +1,5 @@
 var Message = require('../model/Message');
-var sequelize = require('../model/mysql');
+var sequelize = require('../config/mysql');
 
 const controller = {}
 
@@ -7,22 +7,6 @@ controller.list = async (req, res) => {
   const data = await Message.findAll();
   res.json(data)
 }
-
-// controller.list = async (req, res) => {
-//   console.log("uuuuuuuuuuuuusssss", req.body);
-//   const data = await Message.findAll({
-//     where: {
-//       itemId: req.body.itemId
-//     }
-//   })
-//   .then(function(data){
-//     res.json(data);
-//   })
-//   .catch(error =>{
-//     console.log("Error "+error)
-//     return error;
-//   })
-// }
 
 controller.create = async (req,res) => {
   // data
@@ -44,6 +28,28 @@ controller.create = async (req,res) => {
     console.log("Error "+error)
     return error;
   }) 
+}
+
+controller.delete = async (req, res) => {
+  const { itemId, username, content } = req.body;
+  const data = await Message.destroy({
+    where: {
+      itemId: itemId,
+      username: username,
+      content: content
+    }
+  })
+  .then(function(data){
+    res.status(200).json({
+      success: true,
+      message: "Delete Message Successfully",
+      data: data
+    });
+  })
+  .catch(error =>{
+    console.log("Error "+error)
+    return error;
+  })
 }
 
 

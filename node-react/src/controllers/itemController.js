@@ -1,5 +1,5 @@
 var Item = require('../model/Item');
-var sequelize = require('../model/mysql');
+var sequelize = require('../config/mysql');
 
 const controller = {}
 

@@ -1,5 +1,5 @@
 var User = require('../model/User');
-var sequelize = require('../model/mysql');
+var sequelize = require('../config/mysql');
 
 
 const controller = {}
@@ -10,11 +10,12 @@ controller.list = async (req, res) => {
 }
 
 controller.check = async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, role } = req.body;
   const data = await User.findOne({
     where: {
       username: username,
-      password: password
+      password: password,
+      role: role
     }
   })
   .then(function(data){

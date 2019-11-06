@@ -1,9 +1,9 @@
 var Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(
-  'sql12309451',
-  'sql12309451',
-  'lFHVZK27X5',
+  'sql12310530',
+  'sql12310530',
+  'mRcN6ujafa',
   {
     host: 'sql12.freesqldatabase.com',
     dialect: 'mysql',

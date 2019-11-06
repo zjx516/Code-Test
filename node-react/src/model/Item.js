@@ -1,7 +1,7 @@
 //import sequelize
 var Sequelize = require('sequelize');
 // importing connection database
-var sequelize = require('./mysql');
+var sequelize = require('../config/mysql');
 
 var Item = sequelize.define('item', {
   id: {
